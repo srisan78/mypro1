@@ -3,39 +3,39 @@ pipeline{
     stages{
         stage('checkout the code from github'){
             steps{
-                 git url: 'https://github.com/akshu20791/Banking-java-project/'
+                 git url: 'https://github.com/srisan78/mypro1.git'
                  echo 'github url checkout'
             }
         }
-        stage('codecompile with akshat'){
+        stage('code compile'){
             steps{
                 echo 'starting compiling'
                 sh 'mvn compile'
             }
         }
-        stage('codetesting with akshat'){
+        stage('code testing '){
             steps{
                 sh 'mvn test'
             }
         }
-        stage('qa with akshat'){
+        stage('qa'){
             steps{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
-        stage('package with akshat'){
+        stage('package the code'){
             steps{
                 sh 'mvn package'
             }
         }
         stage('run dockerfile'){
           steps{
-               sh 'docker build -t myimg .'
+               sh 'docker build -t sridhar76/bankimg .'
            }
          }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8091:8091 --name c000 myimg'
+                sh 'docker run -dt -p 8091:8091 --name bankcont sridhar76/bankimg '
             }
         }   
     }
