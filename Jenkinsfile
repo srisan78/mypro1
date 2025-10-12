@@ -30,12 +30,12 @@ pipeline{
         }
         stage('run dockerfile'){
           steps{
-               sh 'docker build -t sridhar76/banking .'
+               sh 'docker build -t sridhar76/banking1 .'
            }
          }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8091:8091 --name bankcont sridhar76/banking '
+                sh 'docker run -dt -p 8091:8091 --name bankcont sridhar76/banking1 '
             }
         }   
     }
