@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('checkout the code from github'){
+        stage('checkout the code from the github'){
             steps{
                  git url: 'https://github.com/srisan78/mypro1.git'
                  echo 'github url checkout'
